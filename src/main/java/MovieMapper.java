@@ -11,7 +11,7 @@ public class MovieMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
-        StringTokenizer tokenizer = new StringTokenizer(value.toString(), ",");
+        StringTokenizer tokenizer = new StringTokenizer(value.toString(), "");
 
         while (tokenizer.hasMoreElements()) {
 
@@ -22,7 +22,5 @@ public class MovieMapper extends Mapper<LongWritable, Text, IntWritable, Text> {
                     new Text("movie\t" + movieData[1])
             );
         }
-
-
     }
 }
